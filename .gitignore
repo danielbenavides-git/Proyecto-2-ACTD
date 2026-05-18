@@ -34,7 +34,6 @@ venv/
 datasets/
 
 # Large data file types
-*.csv
 *.tsv
 *.parquet
 *.h5
