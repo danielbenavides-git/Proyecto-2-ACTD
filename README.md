@@ -1,6 +1,6 @@
 # Modelos Predictivos Saber 11 - Caldas
 
-**Curso:** Analítica Computacional para la Toma de Decisiones | **Profesor:** Juan F. Pérez | **Monitor:** Gabriel Bernal | **GRUPO 6**
+**Curso:** Analítica Computacional para la Toma de Decisiones | **Profesor:** Juan F. Pérez | **GRUPO 6**
 
 ## Equipo
 | Nombre | Código |
