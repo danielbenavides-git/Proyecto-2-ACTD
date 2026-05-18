@@ -1,6 +1,6 @@
 # Modelos Predictivos Saber 11 - Caldas
 
-**Curso:** Analítica Computacional para la Toma de Decisiones | **Profesor:** Juan F. Pérez | **Monitor:** Gabriel Bernal | **GRUPO 6**
+**Curso:** Analítica Computacional para la Toma de Decisiones | **Profesor:** Juan F. Pérez | **GRUPO 6**
 
 ## Equipo
 | Nombre | Código |
@@ -10,18 +10,16 @@
 | Andrés Felipe Herrera | 202220888 |
 
 ## Descripción
-Producto de analítica predictiva sobre los resultados de las pruebas Saber 11 en el departamento de Caldas, orientado al Ministerio de Educación como usuario final. El proyecto extiende el análisis exploratorio del Proyecto 1 mediante modelos de clasificación y regresión basados en redes neuronales, buscando responder tres preguntas de negocio: (1) [pregunta 1 — modelo de regresión], (2) [pregunta 2 — modelo de clasificación], y (3) [pregunta 3 — modelo adicional]. Los modelos fueron rastreados con **MLflow** y el tablero interactivo permite al usuario interactuar con los modelos pre-entrenados.
+Producto de analítica predictiva sobre los resultados de las pruebas Saber 11 en el departamento de Caldas, orientado al Ministerio de Educación como usuario final. El proyecto extiende el análisis exploratorio del Proyecto 1 mediante modelos de clasificación y regresión basados en redes neuronales, buscando responder tres preguntas de negocio: (1) ¿Cuál es el puntaje global esperado para un estudiante dado su perfil socioeconómico y el tipo de institución educativa? (regresión), (2) ¿Puede identificarse si un estudiante está en riesgo de obtener un puntaje por debajo del umbral de bajo desempeño? (clasificación binaria), y (3) ¿Puede predecirse el nivel de desempeño en inglés de un estudiante a partir de su perfil académico, socioeconómico y de género? (clasificación multiclase). Los modelos fueron rastreados con MLflow y el tablero interactivo permite al usuario interactuar con los modelos pre-entrenados.
 
 ## Estructura del repositorio
 ```
-├── tarea1/          # Comprensión de negocio y plan de acción
-├── tarea2/          # Selección, limpieza y alistamiento de datos
+├── data/            
 ├── tarea3/          # Exploración de datos
 ├── tarea4/          # Modelamiento y experimentos MLflow
 ├── despliegue/      # Tablero Dash + Dockerfile
 │   ├── app.py
 │   ├── models/      # Modelos serializados (.pkl / .pt)
-│   ├── data/
 │   └── Dockerfile
 └── README.md
 ```
