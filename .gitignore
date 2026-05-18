@@ -18,6 +18,13 @@ venv/
 .ipynb_checkpoints/
 */.ipynb_checkpoints/*
 
+# Jupyter autosaves
+*.nbconvert.ipynb
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+
 # Remove notebook outputs automatically (optional)
 **/outputs/
 **/artifacts/
