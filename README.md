@@ -14,14 +14,12 @@ Producto de analítica predictiva sobre los resultados de las pruebas Saber 11 e
 
 ## Estructura del repositorio
 ```
-├── tarea1/          # Comprensión de negocio y plan de acción
-├── tarea2/          # Selección, limpieza y alistamiento de datos
+├── data/            
 ├── tarea3/          # Exploración de datos
 ├── tarea4/          # Modelamiento y experimentos MLflow
 ├── despliegue/      # Tablero Dash + Dockerfile
 │   ├── app.py
 │   ├── models/      # Modelos serializados (.pkl / .pt)
-│   ├── data/
 │   └── Dockerfile
 └── README.md
 ```
