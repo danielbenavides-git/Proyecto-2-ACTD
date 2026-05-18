@@ -28,11 +28,6 @@ venv/
 .vscode/
 *.code-workspace
 
-# =====================
-# Data (ignore large raw data, but allow configs)
-# =====================
-datasets/
-
 # Large data file types
 *.tsv
 *.parquet
