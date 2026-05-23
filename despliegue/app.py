@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
-from dash import Dash, dcc, html, Input, Output
+from dash import Dash, dcc, html, Input, Output # type: ignore
 import unicodedata
 import json
 import os
@@ -585,7 +585,7 @@ def actualizar_tab1(muns_sel, edu_var, estr_sel):
     return fig_box, fig_heat, fig_brecha
 
 
-from dash import State
+from dash import State # type: ignore
 
 # =======================
 # 5b) Callback Tab 2
@@ -860,7 +860,7 @@ def actualizar_scatter(modo):
 #-------------------------
 #Callback tab 3
 #-------------------------
-from dash.exceptions import PreventUpdate
+from dash.exceptions import PreventUpdate # type: ignore
 @app.callback(
     Output("p3_violin",  "figure"),
     Output("p3_dotplot", "figure"),
