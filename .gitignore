@@ -45,6 +45,7 @@ venv/
 # Models (weights only, not source code)
 # =====================
 models/
+keras_models/
 checkpoints/
 
 # Model weight types
