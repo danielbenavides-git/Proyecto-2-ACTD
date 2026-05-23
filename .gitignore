@@ -44,6 +44,7 @@ venv/
 # =====================
 # Models (weights only, not source code)
 # =====================
+mlruns/
 models/
 checkpoints/
 
