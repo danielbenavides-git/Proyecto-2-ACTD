@@ -1,11 +1,11 @@
 import os
 import numpy as np
 import pandas as pd
-from dash import Dash, dcc, html, Input, Output
+from dash import Dash, dcc, html, Input, Output # type: ignore
 import plotly.graph_objects as go
 from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
-import tensorflow as tf
+import tensorflow as tf  # type: ignore
 
 # ─── 1. CARGA DE DATOS Y MODELOS ─────────────────────────────────────────────
 
