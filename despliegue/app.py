@@ -23,12 +23,15 @@ model_p3 = tf.keras.models.load_model(os.path.join(BASE_DIR, "models", "model_p3
 
 # Features por pregunta
 FEAT_P1 = [
+    'estrato_num', 'edu_madre_num', 'edu_padre_num',
+    'indice_activos', 'es_privado', 'es_urbano', 'genero_num'
+]
+FEAT_P2 = [
     'estrato_num', 'edu_madre_num', 'edu_padre_num', 'indice_activos',
     'fami_tienecomputador', 'fami_tieneinternet',
     'fami_tieneautomovil', 'fami_tienelavadora',
     'es_privado', 'es_urbano', 'genero_num'
 ]
-FEAT_P2 = FEAT_P1
 FEAT_P3 = [
     'punt_matematicas', 'punt_lectura_critica',
     'punt_c_naturales', 'punt_sociales_ciudadanas',
@@ -39,6 +42,14 @@ FEAT_P3 = [
 ]
 CLASES_P3 = ['A-', 'A1', 'A2', 'B+', 'B1']
 
+import pickle
+
+with open(os.path.join(BASE_DIR, "models", "scaler_p1.pkl"), 'rb') as f:
+    scalers_p1 = pickle.load(f)
+
+imp1 = scalers_p1['imputer']
+scl1 = scalers_p1['scaler_X']
+scaler_y_p1 = scalers_p1['scaler_y']
 # Ajustar scalers sobre el dataset completo
 def make_pipeline(features):
     sub = df[features].dropna()
@@ -47,7 +58,6 @@ def make_pipeline(features):
     scl.fit(imp.fit_transform(sub))
     return imp, scl
 
-imp1, scl1 = make_pipeline(FEAT_P1)
 imp2, scl2 = make_pipeline(FEAT_P2)
 imp3, scl3 = make_pipeline(FEAT_P3)
 
@@ -76,7 +86,8 @@ EDU_OPTS = [
 def predict_p1(vals):
     x = np.array(vals, dtype=float).reshape(1, -1)
     x = scl1.transform(imp1.transform(x))
-    return float(model_p1.predict(x, verbose=0)[0][0])
+    y_scaled = float(model_p1.predict(x, verbose=0)[0][0])
+    return float(scaler_y_p1.inverse_transform([[y_scaled]])[0][0])
 
 def predict_p2(vals):
     x = np.array(vals, dtype=float).reshape(1, -1)
@@ -396,9 +407,8 @@ def actualizar_tab1(estrato, edu_madre, edu_padre, genero,
                     computador, internet, automovil, lavadora,
                     privado, urbano):
     indice = (computador + internet + automovil + lavadora) / 4.0
-    vals   = [estrato, edu_madre, edu_padre, indice,
-              computador, internet, automovil, lavadora,
-              privado, urbano, genero]
+    vals = [estrato, edu_madre, edu_padre, indice,
+        privado, urbano, genero]
     pred = max(PMIN, min(PMAX, predict_p1(vals)))
 
     if pred >= MEAN_CALDAS:
@@ -468,7 +478,7 @@ def actualizar_tab1(estrato, edu_madre, edu_padre, genero,
 def actualizar_tab2(estrato, edu_madre, edu_padre, genero,
                     computador, internet, automovil, lavadora,
                     privado, urbano):
-    indice = (computador + internet + automovil + lavadora) / 4.0
+    indice = computador + internet + automovil + lavadora
     vals   = [estrato, edu_madre, edu_padre, indice,
               computador, internet, automovil, lavadora,
               privado, urbano, genero]
