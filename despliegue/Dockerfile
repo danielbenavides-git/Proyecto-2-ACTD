@@ -1,15 +1,14 @@
-FROM python:3.12-slim
+FROM python:3.11-slim
 
 WORKDIR /app
 
-# Instalar dependencias primero (capa cacheada)
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar aplicación y recursos
 COPY app.py .
 COPY data/ data/
 COPY models/ models/
+COPY assets/ assets/
 
 EXPOSE 8050
 
