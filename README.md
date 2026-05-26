@@ -55,7 +55,7 @@ Los modelos son redes neuronales entrenadas con TensorFlow/Keras y se cargan pre
 | Archivo | Tipo | Variable objetivo |
 |---|---|---|
 | `model_p1.keras` | Regresión | `punt_global` (0–500) |
-| `model_p2.keras` | Clasificación binaria | Riesgo de `punt_global` < 230 |
+| `model_p2.keras` | Clasificación binaria | Riesgo de `punt_global` < 220 |
 | `model_p3.keras` | Clasificación multiclase | Nivel de inglés: A−, A1, A2, B1, B+ |
 
 El entrenamiento, los experimentos y las métricas de evaluación están documentados en **MLflow** (ver carpeta `tarea4/`).
